@@ -10,5 +10,5 @@ services:
       - 'SSL_AUTODEPLOY=false'          # Erstellt die Zertifikate beim Start des Containers
       - 'SSL_DOMAIN=staudigl-druck.de'  # Für welche Domain sollen die Zertifikate ausgestellt werden?
       - 'TESTRUN=true'                  # Sollen Demo Zertifikate ausgestellt werden?
-      - 'MAIL_ADRESS=Email@adress.de'
+      - 'MAIL_ADDRESS=Email@address.de'
       - 'PASSWORD=password'
