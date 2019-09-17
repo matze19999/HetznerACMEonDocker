@@ -24,8 +24,8 @@ RUN echo $'#!/bin/sh\n\
 \n\
 echo produktiv\n\
 \n\
-export LEXICON_HETZNER_USERNAME="EMAIL_ADRESS"\n\
-export LEXICON_HETZNER_PASSWORD="PASSWORD"\n\
+export LEXICON_HETZNER_USERNAME="$MAIL_ADRESS"\n\
+export LEXICON_HETZNER_PASSWORD="$PASSWORD"\n\
 lexicon hetzner create $CERTBOT_DOMAIN TXT --name=_acme-challenge."$CERTBOT_DOMAIN" --content="$CERTBOT_VALIDATION"\n\
 \n\
 exit 0\n\
@@ -38,8 +38,8 @@ RUN echo $'#!/bin/sh\n\
 \n\
 echo cleanup\n\
 \n\
-export LEXICON_HETZNER_USERNAME="EMAIL_ADRESS"\n\
-export LEXICON_HETZNER_PASSWORD="PASSWORD"\n\
+export LEXICON_HETZNER_USERNAME="$MAIL_ADRESS"\n\
+export LEXICON_HETZNER_PASSWORD="$PASSWORD"\n\
 lexicon hetzner delete DOMAIN.de TXT --name="_acme-challenge.DOMAIN.de"\n\
 lexicon hetzner delete "$CERTBOT_DOMAIN" TXT --name=_acme-challenge."$CERTBOT_DOMAIN"\n\
 \n\
