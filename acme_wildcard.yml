@@ -3,7 +3,7 @@
 version: '3.6'
 services:
   acme_wildcard:
-    image: registry.staudigl.local:443/acme_wildcard:20190809
+    image: matze19999/hetzneracme:latest
     volumes:
       - /var/lib/boot2docker/apps/letsencrypt:/certs
     environment:
