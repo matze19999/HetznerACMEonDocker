@@ -3,12 +3,14 @@
 version: '3.6'
 services:
   acme_wildcard:
-    image: matze19999/hetzneracme:latest
+    image: matze19999/acme_wildcard:20191010
     volumes:
-      - /var/lib/boot2docker/apps/letsencrypt:/certs
+      - /pound/ssl:/certs
     environment:
-      - 'SSL_AUTODEPLOY=false'          # Erstellt die Zertifikate beim Start des Containers
-      - 'SSL_DOMAIN=DOMAIN.de'  # Für welche Domain sollen die Zertifikate ausgestellt werden?
-      - 'TESTRUN=true'                  # Sollen Demo Zertifikate ausgestellt werden?
-      - 'MAIL_ADDRESS=Email@address.de'
-      - 'PASSWORD=password'
+      SSL_AUTODEPLOY: 'true'                            # Erstellt die Zertifikate beim Start des Containers (bool)
+      SSL_DOMAIN: 'domain1.org domain2.com domain3.de'  # Für welche Domain sollen die Zertifikate ausgestellt werden? (string)
+      TESTRUN: 'false'                                  # Sollen Demo Zertifikate ausgestellt werden? (bool)
+      AUTOCHECK: 'true'                                 # Automatisch neue Zertifikate ausstellen, wenn vorhandene kürzer als $SSLTTL gültig (bool)
+      SSLTTL: '2419200' # 1 Monat                       # Wie lange dürfen die vorhandenen Zertifikate noch gültig sein?
+      LEXICON_HETZNER_USERNAME: 'EMAILADRESS'
+      LEXICON_HETZNER_PASSWORD: 'PASSWORD'
