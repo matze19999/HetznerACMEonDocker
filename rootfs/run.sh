@@ -13,7 +13,7 @@ function getcertificate() {
                 echo
                 echo "Das Ausstellen der Zertifikate kann einige Minuten pro Zertifikat in Anspruch nehmen, bitte nicht das Script oder den Tab beenden!"
                 echo
-                certbot certonly --manual --preferred-challenges=dns --email "it-support@staudigl-druck.de" --server "https://acme-v02.api.letsencrypt.org/directory" -d *.$certificate -d $certificate --agree-tos --manual-public-ip-logging-ok --non-interactive $DEBUG --manual-auth-hook "/authenticator.sh" --manual-cleanup-hook "/cleanup.sh"
+                certbot certonly --manual --preferred-challenges=dns --email "$LEXICON_HETZNER_USERNAME" --server "https://acme-v02.api.letsencrypt.org/directory" -d *.$certificate -d $certificate --agree-tos --manual-public-ip-logging-ok --non-interactive $DEBUG --manual-auth-hook "/authenticator.sh" --manual-cleanup-hook "/cleanup.sh"
                 echo
                 cat /etc/letsencrypt/archive/$certificate/* > /certs/$certificate.pem
                 echo "Das fertige Zertifikat liegen unter /certs/"
