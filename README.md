@@ -9,4 +9,4 @@ Alpine:latest
 amd32 / amd64
 
 ## Image Size
-309 MB
+112 MB
